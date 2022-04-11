@@ -9,10 +9,12 @@ public class Caretaker : MonoBehaviour
     private List<Memento> history;
     [SerializeField]
     private Originator originator;
+    [SerializeField]
+    private SpriteRenderer filtre;
 
     private bool doitEnregistrer = true;
 
-    private float dt = 0.05f, time = 0f, totalTime = 0f;
+    private float dt = 0.025f, time = 0f, totalTime = 0f;
 
     void Update()
     {
@@ -28,6 +30,8 @@ public class Caretaker : MonoBehaviour
             }
         }        
     }
+
+    public bool GetEnregistre() { return doitEnregistrer; }
 
     public void Remember()
     {
@@ -55,5 +59,6 @@ public class Caretaker : MonoBehaviour
     {
         doitEnregistrer = false;
         StartCoroutine(RegardeLeFilm());
+        filtre.color = new Color(filtre.color.r, filtre.color.g, filtre.color.b, 0.3f); 
     }
 }

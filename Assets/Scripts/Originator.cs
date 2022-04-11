@@ -11,7 +11,7 @@ public class Originator : MonoBehaviour
 
     // ***** STATE *****
     [SerializeField]
-    private Transform trsfPACMAN;
+    private Transform trsfPACMAN, trsfFANTOM1, trsfFANTOM2, trsfFANTOM3, trsfFANTOM4, trsfFANTOM5;
 
     public Memento Save(float t)
     {
@@ -23,5 +23,10 @@ public class Originator : MonoBehaviour
     public void Restore(Memento memento)
     {
         trsfPACMAN.position = memento.GetState()[0];
+        trsfFANTOM1.position = memento.GetState()[1];
+        trsfFANTOM2.position = memento.GetState()[2];
+        trsfFANTOM3.position = memento.GetState()[3];
+        trsfFANTOM4.position = memento.GetState()[4];
+        trsfFANTOM5.position = memento.GetState()[5];
     }
 }
